@@ -1,15 +1,14 @@
 function fibo() {
-	console.log('IN');
 	let nb = document.getElementById('number').value;
 	let e1 = 0;
 	let e2 = 1;
-	document.getElementById('champ').innerHTML += 0+'<br/>';
-	document.getElementById('champ').innerHTML += 1+'<br/>';
+	document.getElementById('champ').innerHTML += '<p>'+0+'</p>';
+	document.getElementById('champ').innerHTML += '<p>'+1+'</p>';
 	var i;
 	for ( i=0 ; i<nb-2 ; i++ ) {
 		e2 = e1+e2;
 		e1 = e2-e1;
-		document.getElementById('champ').innerHTML += e2+'<br/>';
+		document.getElementById('champ').innerHTML += '<p>'+e2+'</p>';
 	}
 	
 	console.log('OUT');
