@@ -13,6 +13,4 @@ function fibo() {
 		document.getElementById('champ').innerHTML += '<p>'+e2+'</p>';
 	}
 	
-	console.log('OUT');
-	
 }
