@@ -3,18 +3,21 @@ const Planet = require('./planet.js');
 
 async function run() {
 	let planets = [];
-	await axios.get('https://dragon-ball-api.herokuapp.com/api/planet/')
-	.then(
-		res => {
-			res.data
-			.forEach(p => { 
-				let planet = new Planet( p );
-				planets.push( planet );
+	let url = 'https://swapi.co/api/planets/';
+	while( url ) {
+		await axios.get(url)
+		.then(
+			res => {
+				res.data.results
+				.forEach(p => { 
+					let planet = new Planet( p );
+					planets.push( planet );
+				}
+				)
+				url = res.data.next;
 			}
-			)
-		}
-	)
-	.catch( error => {
+		)
+		.catch( error => {
 		if (error.response) {
 			console.log(error.response.data);
 			console.log(error.response.status);
@@ -26,7 +29,7 @@ async function run() {
 		}
 		console.log(error.config);
 	});
-
+	}
 	planets.forEach(
 		p => console.log(`Planete ${p.name} - Population : ${p.population}`)
 	);

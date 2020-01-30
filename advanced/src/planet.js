@@ -1,7 +1,7 @@
 class Planet {
-	constructor( { name, residents } ) {
+	constructor( { name, population } ) {
 		this._name = name;
-		this._population = residents.length;
+		this._population = population;
 	}
 	get name() {
 		return this._name;
@@ -11,7 +11,10 @@ class Planet {
 	}
 	static cPlanetsPop( planets ) {
 		return planets.reduce(
-			(acc,p) => { return acc + p.population; }
+			(acc,p) => {
+				let value = parseInt(p.population);
+				return acc + (value?value:0);
+			}
 			, 0
 		);
 	}
