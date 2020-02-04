@@ -1,0 +1,29 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Liste des tâches</h1>
+        <p class="lead">Consulter la liste des tâches à faire ici</p>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Libellé de la tâche</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor=" let tache of todolist ">
+            <th scope="row">{{tache.id}}</th>
+            <td>{{tache.label}}</td>
+            <td>
+                <button class="btn btn-outline-info mr-2">Modifier</button>
+                <button class="btn btn-outline-danger">Supprimer</button>
+            </td>
+        </tr>
+		<tr *ngIf="todolist.length <= 0" >
+			<td colspan="3" class="text-center">Aucune tâche pour le moment...</td>
+		</tr>
+	</tbody>
+</table>
