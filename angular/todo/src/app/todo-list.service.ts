@@ -5,7 +5,7 @@ import { Todo, todos } from './model'
 export class TodoListService {
 
 	todolist : todos;
-	nextId : 0;
+	nextId = 1;
 	
 	constructor() {
 		this.todolist = [];
@@ -44,7 +44,7 @@ export class TodoListService {
 	
 	delete( todo : Todo ) {
 		this.todolist = this.todolist.filter(
-			tache => tache.id == todo.id
+			tache => tache.id != todo.id
 		);
 	}
 	

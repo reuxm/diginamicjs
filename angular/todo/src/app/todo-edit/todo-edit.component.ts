@@ -25,14 +25,13 @@ export class TodoEditComponent implements OnInit {
 	}
 	
 	addTodo() {
-		console.log( this.todo );
 		if( this.todo.id == 0 ) {
 			this.service.add( this.todo );
 		}
 		else {
 			this.service.edit( this.todo );
 		}
-		this.routeur.navigate('/');
+		this.router.navigate(['/']);
 	}
 
 }

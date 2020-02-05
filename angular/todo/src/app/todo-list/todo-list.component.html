@@ -18,8 +18,8 @@
             <th scope="row">{{tache.id}}</th>
             <td>{{tache.label}}</td>
             <td>
-                <button class="btn btn-outline-info mr-2">Modifier</button>
-                <button class="btn btn-outline-danger">Supprimer</button>
+                <a class="btn btn-outline-info mr-2" routerLink="/edit/{{tache.id}}" routerLinkActive="activeLink">Modifier</a>
+                <button class="btn btn-outline-danger" (click)="delete(tache.id)">Supprimer</button>
             </td>
         </tr>
 		<tr *ngIf="todolist.length <= 0" >
